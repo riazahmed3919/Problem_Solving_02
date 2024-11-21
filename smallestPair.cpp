@@ -5,25 +5,27 @@ int main()
 {
     int t, n;
     cin >> t;
-    for (int i = 0; i < t; i++)
+    for (int i = 1; i <= t; i++)
     {
         cin >> n;
         long long arr[n];
 
-        for (int i = 0; i < n; i++)
+        for (int i =1 ; i <= n; i++)
         {
             cin >> arr[i];
         }
 
-        // for (int i = 0; i < n; i++)
-        // {
-        //     cout << arr[i] << " ";
-        // }
+        long long minimum = LLONG_MAX;
 
-        for (int i = 1, j = i + 1; i <= n; i++, j++)
+        for (int i = 1; i <= n; i++)
         {
-            cout << arr[i] + arr[j] + j - i << endl;
+            for (int j = i + 1; j <= n; j++)
+            {
+                minimum = min(minimum, arr[i] + arr[j] + j - i);
+            }
         }
+        cout << minimum << endl;
     }
+    
     return 0;
 }
